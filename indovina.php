@@ -19,10 +19,16 @@
         }
         if ($numeroRandomico == $numeroScelto) {
             echo "Hai indovinato! Hai indovinato in " . $_SESSION["tentativi"] . " tentativi <br>";
+            if(!isset($_SESSION["vittorie"])) {
+                $_SESSION["vittorie"] = 0;
+            }else{
+                $_SESSION["vittorie"]++;
+            }
         }else {
             echo "Hai sbagliato! Hai indovinato in " . $_SESSION["tentativi"] . " tentativi <br>";
         }
-        echo "<a href='scelta.html'>Ricomincia</a>"
+        echo "<p>Numero di vittorie: " . $_SESSION["vittorie"] . "</p>";
+        echo "<a href='scelta.html'>Ricomincia</a>";
     ?>
 </body>
 </html>
